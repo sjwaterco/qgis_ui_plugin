@@ -1,0 +1,22 @@
+<RCC>
+  <qresource prefix="/plugins/clwscdesktop">
+    <file>images/search_mapsco.png</file>
+    <file>icon.png</file>
+    <file>images/icon_16.png</file>
+    <file>images/icon_128.png</file>
+    <file>images/search_address.png</file>
+    <file>images/search_intersection.png</file>
+    <file>images/search_parcel.png</file>
+    <file>images/search_station.png</file>
+    <file>images/search_subdivision.png</file>
+    <file>images/tb_extent.png</file>
+    <file>images/tb_measureArea.png</file>
+    <file>images/tb_measureLength.png</file>
+    <file>images/tb_pan.png</file>
+    <file>images/tb_print.png</file>
+    <file>images/tb_select.png</file>
+    <file>images/tb_suggestions.png</file>
+    <file>images/tb_zoomIn.png</file>
+    <file>images/tb_zoomOut.png</file>
+  </qresource>
+</RCC>
