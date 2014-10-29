@@ -35,4 +35,4 @@ edition should be sufficient) and the learning  curve is not terribly steep.
 You'll modify the .ui files in the main directory.
 
 We welcome pull requests and code cleanup. Send inquiries about functionality
-and requests to [aaron.gundel@sjwater.com](aaron.gundel@sjwater.com)
+and requests to [aaron.gundel@sjwater.com](aaron.gundel@sjwater.com).
