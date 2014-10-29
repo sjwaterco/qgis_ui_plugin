@@ -24,7 +24,9 @@ need to remove this functionality. See comments in
 [app/clwscdesktopdialog.py](app/clwscdesktopdialog.py).
 
 Note that it will be *critical* to remove the
-    import _winreg 
+```
+import _winreg
+```
 from these files if you're running the plugin on a non-windows OS.  
 
 In order to modify the user interface graphically, you'll need to download
