@@ -87,6 +87,8 @@ class Google(Geocoder):
 
     def sign(self, unsignedUrl):
         url = urlparse.urlparse(unsignedUrl)
+
+        # enter your own Google Maps API key under the "key" variable.  
         regKey = OpenKey(HKEY_LOCAL_MACHINE, r'SOFTWARE\Wow6432Node\Canyon Lake Water Services Company\CLWSC GDI Desktop')
         key = QueryValueEx(key, "gmapapi")[0]
         decodedKey = base64.urlsafe_b64decode(key)

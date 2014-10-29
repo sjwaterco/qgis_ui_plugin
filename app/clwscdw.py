@@ -3,11 +3,11 @@
 /***************************************************************************
  ClwscDW
                                  A QGIS plugin
-Search widght -- Docked on the left side.
+ Search module -- Docked on the left side.
                              -------------------
         begin                : 2012-03-30
         copyright            : (C) 2012 by SJWC
-        email                : aaron_gundel@sjwater.com
+        email                : aaron.gundel@sjwater.com
  ***************************************************************************/
 
 /***************************************************************************
@@ -64,7 +64,13 @@ class ClwscDW(QDockWidget, Ui_ClwscDW, object):
     def autocompleteSetup(self, text):
       # We only update the model of the minimum number of chars have been entered
       buttonName = self.getCheckedButton()
+
+      # get the requested searcher class.  NOTE: Comment me out to make plugin work (if you're not SJWC)
       searcher = self.searchFactory.getSearcher(buttonName)
+
+      # If you're not SJWC, comment this out, too.  This sets up our autocomplete options.  
+      # (autocomplete for our searches)  This should give you a good idea about how to
+      # set up your own autocomplete.  
       if(len(text) == searcher.minSearchLength):
         result = searcher.autocomplete_execute(text)
         resultArray = QStringList()
@@ -85,7 +91,13 @@ class ClwscDW(QDockWidget, Ui_ClwscDW, object):
       if(text == ""):
         text = self.textBoxQuery.text()
       
+      # NOTE: comment out everything hereafter to make this plugin work
+      # if you're not SJWC.
+
+      # determine which search was executed (which button is selected)
       buttonName = self.getCheckedButton()
+
+      # get the searcher that will perform the search and do it
       searcher = self.searchFactory.getSearcher(buttonName)  
       result = searcher.execute(text)
 
@@ -98,6 +110,7 @@ class ClwscDW(QDockWidget, Ui_ClwscDW, object):
       # Get the map canvas
       mc = self.plugin.iface.mapCanvas()
 
+      # Go to the location the user has selected/searched for
       coordX = mc.extent().xMinimum()
       coordY = mc.extent().yMaximum()
       height2 = mc.extent().height() * 1 / 2.0
@@ -108,6 +121,9 @@ class ClwscDW(QDockWidget, Ui_ClwscDW, object):
       mc.setExtent(rect)
 
       mc.refresh()
+
+      # We zoom a little closer if the user 
+      # executes a mapsco search (parcel based)
       if(buttonName != "mapsco"):
           mc.zoomScale(1200)
       else:

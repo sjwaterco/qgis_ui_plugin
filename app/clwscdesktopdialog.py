@@ -3,11 +3,11 @@
 /***************************************************************************
  CLWSCDesktopDialog
                                  A QGIS plugin
- Changes the User Interface to Help
+ Creates an additional dialog for the user to provide feedback
                              -------------------
         begin                : 2012-03-30
         copyright            : (C) 2012 by SJWC
-        email                : aaron_gundel@sjwater.com
+        email                : aaron.gundel@sjwater.com
  ***************************************************************************/
 
 /***************************************************************************
@@ -47,11 +47,19 @@ class CLWSCDesktopDialog(QDialog):
     def connectDlgSignals(self):
         self.iface.connect(self.ui.buttonSubmit, SIGNAL("clicked()"), self.saveTicket)
       
+
+    # Save the ticket to Pivotal Tracker
+    # NOTE: this info is specific to SJW.  If you were to customize this 
+    # section of code, you would modify this save ticket function to either use
+    # your own Pivotal Tracker project/key or insert the feedback into your own
+    # ticketing/tracking system.  All of this is completely optional.  This code
+    # will only fire when attempting to submit feedback.
     def saveTicket(self):
         storyXml = "<story><story_type>bug</story_type><name>{0}</name><description>" + \
                    "{1}</description><requested_by>Portal User</requested_by></story>"
         url = "https://www.pivotaltracker.com/services/v3/projects/874265/stories"
         regKey = OpenKey(HKEY_LOCAL_MACHINE, r'SOFTWARE\Wow6432Node\Canyon Lake Water Services Company\CLWSC GDI Desktop')
+        # This token should be your Pivotal Tracker API Key
         token = QueryValueEx(key, "pttoken")[0]
         description = escape(self.ui.textBoxName.toPlainText()) + " &lt;" + escape(self.ui.textBoxEmail.toPlainText()) + "&gt;\n"
         description += escape(self.ui.textBoxDescription.toPlainText())

@@ -7,6 +7,15 @@ from qgis.core import *
 from google import Google
 from PyQt4 import QtGui
 
+# The searcher class implements SJWC's search routines.  We segregate our searches by type
+# (address, intersection, station, etc.) in order to make our user interface more familiar
+# our users (like systems they have used in the past)  Initializing the SearchFactory without
+# the needed reg keys will LIKELY cause the module to break.  (I don't know, I haven't done it.)
+# In order to make the module work for you, comment out the init section.  Note that (obviously)
+# the searches will not work for you since you don't have our database schema, so executing
+# searches will also cause the plugin to break/throw an exception.  You'll want to modify
+# the UI and/or SearchFactory accordingly.  Send me an email if you have questions.
+
 class Search:
   def __init__(self, database):
     self.name = ""
