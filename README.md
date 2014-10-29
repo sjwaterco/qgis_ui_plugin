@@ -18,7 +18,7 @@ use this functionality (used in the searches module) you'll need to modify this
 key (in [app/google.py](app/google.py)).
 
 Finally, we log user feedback from the application in
-[http://www.pivotaltracker.com](Pivotal Tracker). If you want to use this
+[Pivotal Tracker](http://www.pivotaltracker.com). If you want to use this
 functionality, you'll need your own API key and/or system. Otherwise, you'll
 need to remove this functionality. See comments in
 [app/clwscdesktopdialog.py](app/clwscdesktopdialog.py).
@@ -30,9 +30,9 @@ import _winreg
 from these files if you're running the plugin on a non-windows OS.  
 
 In order to modify the user interface graphically, you'll need to download
-[http://www.qt.io/download/](QT). This is freely available (the community
+[QT](http://www.qt.io/download/). This is freely available (the community
 edition should be sufficient) and the learning  curve is not terribly steep.
 You'll modify the .ui files in the main directory.
 
 We welcome pull requests and code cleanup. Send inquiries about functionality
-and requests to [aaron.gundel@sjwater.com](aaron.gundel@sjwater.com).
+and requests to [aaron.gundel@sjwater.com](mailto:aaron.gundel@sjwater.com).
